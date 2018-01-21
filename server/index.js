@@ -3,6 +3,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
     ctrl = require('./favorites-controller'),
+    marvel = require('marvel'),
     port = 3005,
     app = express(),
     axios = require('axios');
@@ -14,7 +15,7 @@ app.get('/api/favorites', ctrl.read)
 app.delete('/api/favorites/:id', ctrl.delete)
 
 app.listen(port, ()=>{
-    console.log(`the show starts on port ${port}, and it starts right now!`)
+    console.log(`the show is on port ${port}, and it starts right now!`)
 })
 
 app.get('/api/heroes', (req, res)=>{
