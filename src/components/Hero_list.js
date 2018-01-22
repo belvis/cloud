@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import Btn from './Button'
 class HeroList extends Component {
     constructor(props) {
       super(props);
@@ -22,7 +22,10 @@ class HeroList extends Component {
         var list = this.props.list.length<1? this.state.herolist.map(val=>(
             <h1>{val.name}</h1>
         )):this.props.list.map(val=>(
-            <h1>{val.name}</h1>
+            <div>
+                <h1>{val.name}</h1>
+                <Btn id={val.id}/>
+            </div>
         ))
     return(
         <div>

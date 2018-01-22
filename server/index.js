@@ -35,12 +35,11 @@ app.get('/api/heroes/filter', function(req, res) {
     .fail(console.error)
 })
 
-// app.get('/api/heroes/', (req, res)=>{
-   
-//     marvel.characters.find('    ')
-//     .then((resp)=>{
-//         console.log(resp.data);
-//         res.send(resp.data)
-//     })
-//     .fail(console.error)
-// })
+app.get('/api/heroes/:id', (req, res)=>{
+    let id = parseInt(req.params.id)
+    marvel.characters.find(id)
+    .then((resp)=>{
+        res.send(resp.data)
+    })
+    .fail(console.error)
+})
