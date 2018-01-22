@@ -1,33 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import Search from './Search'
 
-const Button = ()=>{
-    return <input />;
-}
+class Button extends Component {
+  constructor(props) {
+    super(props);}
 
-export default Button;
-function Button( props ) {
+const Button( props ) {
     return(
-        <button className = "pressMe"
+        <button className = "forSearch"
                   onClick = {
                       () => props.onClick() }>
-            Click Me!
+            To the rescue!
         </button>)
-}
-var React = require('react');
-
-var buttonStyle = {
-  margin: '10px 10px 10px 0'
-};
-
-var Button = React.createClass({
-  render: function () {
-    return (
-      <button
-        className="btn btn-default"
-        style={buttonStyle}
-        onClick={this.props.handleClick}>{this.props.label}</button>
-    );
-  }
-});
-
-module.exports = Button;
+export default Button;
