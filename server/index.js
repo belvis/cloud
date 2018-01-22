@@ -3,11 +3,15 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
     ctrl = require('./favorites-controller'),
-    marvel = require('marvel'),
+    api = require('marvel-api'),
     port = 3005,
     app = express(),
     axios = require('axios');
-   let keys = require('./keys');
+   const keys = require('./keys');
+   const marvel = api.createClient({
+    publicKey: keys.publicKey
+  , privateKey: keys.privateKey
+  });
 
 app.use(bodyParser.json());
 
@@ -20,12 +24,10 @@ app.listen(port, ()=>{
 
 app.get('/api/heroes', (req, res)=>{
    
-   let ts = new Date().toString();
-   let hash = md5(ts + keys.privateKey + keys.publicKey);
-   console.log(hash);
-   axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${keys.publicKey}&hash=${hash}`).then(resp=>{
-     res.send(resp.data);
-   }).catch((err)=>{
-       console.error(err);
-   })
+    marvel.characters.findAll()
+    .then((resp)=>{
+        console.log(resp.data);
+        res.send(resp.data)
+    })
+    .fail(console.error)
 })

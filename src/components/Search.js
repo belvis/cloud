@@ -29,8 +29,7 @@ class Search extends Component {
       <input placeholder="Search Hero"
         value={this.state.searchTerm}
         onChange={(e)=>this.handleChange(e.target.value)}
-         />
-          Value of the input: {this.state.term}        
+         />      
     </div>
     )
 
