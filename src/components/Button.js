@@ -6,7 +6,7 @@ function Button(props){
   function onClick(id){
     axios.get('/api/heroes/'+ id)
     .then(res=>{
-      console.log(res)
+      
     })
   }
   return(

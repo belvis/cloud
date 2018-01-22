@@ -19,6 +19,9 @@ class HeroList extends Component {
     }
 
     render(){
+
+        
+
         var list = this.props.list.length<1? this.state.herolist.map(val=>(
             <h1>{val.name}</h1>
         )):this.props.list.map(val=>(
