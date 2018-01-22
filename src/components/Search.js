@@ -9,6 +9,11 @@ class Search extends Component {
     }
   }
 
+  handleChange(value){
+    this.setState({
+      searchTerm: value 
+    },()=>console.log(this.state))
+  }
 
   searchResult() {
     axios.get()
@@ -19,15 +24,15 @@ class Search extends Component {
       })
   }
   render() {
-    return
+    return (
     <div>
       <input placeholder="Search Hero"
         value={this.state.searchTerm}
-        onChange={event => this.setState({
-          term: event.target.value
-        })} />;
+        onChange={(e)=>this.handleChange(e.target.value)}
+         />
           Value of the input: {this.state.term}        
     </div>
+    )
 
   }
 }
