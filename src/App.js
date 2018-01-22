@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SearchBar from './components/Search.js';
+// import SearchBar from './components/Search.js';
 import Search from './components/Search';
 
 class App extends Component {

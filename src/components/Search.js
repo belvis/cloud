@@ -1,33 +1,35 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class Search extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-          searchTerm: ''
-        }
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ''
     }
-    
+  }
 
-    searchResult(){
-        axios.get()
-        .then(res=>{
-            console.log(res.data);
-        }).catch(err=>{
-            console.error(err);
-        })
-    }
-    render(){
-      return (
-        <div>
-          <input
-          onChange=""
-          placeholder="Search Hero"/>
-          <button>Search</button>
-        </div>
-      )
-    }
+
+  searchResult() {
+    axios.get()
+      .then(res => {
+        console.log(res.data);
+      }).catch(err => {
+        console.error(err);
+      })
+  }
+  render() {
+    return
+    <div>
+      <input placeholder="Search Hero"
+        value={this.state.searchTerm}
+        onChange={event => this.setState({
+          term: event.target.value
+        })} />;
+          Value of the input: {this.state.term}        
+    </div>
+
+  }
 }
 export default Search;
 // marvel.characters.findByName(searchTerm)
